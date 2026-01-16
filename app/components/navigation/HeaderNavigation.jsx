@@ -1,11 +1,10 @@
-
 'use client';
 import Link from "next/link";
 import { FaChevronLeft } from "react-icons/fa6";
 import { CiSearch } from "react-icons/ci";
 import { usePathname } from "next/navigation";
 
-export default function Navigation () {
+export default function HeaderNavigation () {
     const pathname = usePathname();
 
     // Udtræk sidetitlen fra path

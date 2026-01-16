@@ -14,12 +14,7 @@ export default async function Home() {
   return (
     <div className="-mt-60">
       <main className="mx-6 ">
-        <h1 className="text-5xl text-white font-bold dark:text-white">
-          Playlist
-        </h1>
-        <p className="text-lg text-gray-700 dark:text-gray-300">
-          Top 50 Rock Ballads
-        </p>
+        
       </main>
     </div>
   );
