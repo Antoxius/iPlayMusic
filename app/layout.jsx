@@ -15,10 +15,11 @@ export default function RootLayout({
   return (
     <html lang="dk">
       <body className="antialiased"
-        
       >
         <Header/>
+        <main>
         {children}
+        </main>
         <Footer/>
       </body>
     </html>

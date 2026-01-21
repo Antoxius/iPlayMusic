@@ -5,7 +5,7 @@ export default function LoginPage () {
 
 return (
     <>
-        <div className="mx-auto w-full">
+        <div className="mx-10 w-full">
 
         <h1 className="text-3xl mb-8">Login Page</h1>
         <button className="bg-orange-500 p-5 border-4 rounded-lg">

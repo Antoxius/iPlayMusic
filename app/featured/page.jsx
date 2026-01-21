@@ -4,8 +4,10 @@ export default function Featured () {
 
 return (
     <>
-    <HeaderNavigation/>
-    <h1>Featured</h1>
+    <h1 className="text-3xl font-bold">Featured</h1>
+    <div>
+        
+    </div>
     
     </>
 )
