@@ -25,10 +25,10 @@ export async function GET ( request ) {
 
     const cookieStore = await cookies();
 
-    // IPM_AT = Iplaymusic acces token
+    // IPM_AT = Iplaymusic access token
     cookieStore.set('IPM_AT', data.access_token, { maxAge: data.expires_in })
     // IPM_RT = Iplaymusic refresh token
-                                                    // expires 5 times later than access token
+                                                // expires 5 times later than access token
     cookieStore.set('IPM_RT', data.refresh_token, { maxAge: data.expires_in * 5 })
     // redirect to home page
 

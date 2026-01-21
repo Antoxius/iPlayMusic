@@ -1,2 +1,16 @@
 @import "tailwindcss";
 
+.scroll-none{
+    overflow: hidden;
+}
+
+/* .playBtn{
+    background-color: red;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+} */

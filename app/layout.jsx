@@ -1,6 +1,6 @@
 import "./globals.css";
 import Header from "./components/Header/Header.jsx";
-import Footer from "./components/Footer/Footer.jsx";
+import Footer from "./components/footer/FooterNavigation.jsx";
 
 
 
@@ -15,10 +15,11 @@ export default function RootLayout({
   return (
     <html lang="dk">
       <body className="antialiased"
-        
       >
         <Header/>
+        <main>
         {children}
+        </main>
         <Footer/>
       </body>
     </html>
