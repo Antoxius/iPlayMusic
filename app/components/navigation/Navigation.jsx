@@ -25,7 +25,6 @@ export default function Navigation () {
                     </Link>
                     <h1>{pageTitle}</h1>
                     <CiSearch />
-
                 </li>
             </ul>
         </nav>
