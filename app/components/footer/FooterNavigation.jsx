@@ -21,7 +21,7 @@ return (
                 <IoMdWifi className="text-2xl">
                 </IoMdWifi>
                 
-                <Link href="/playlists">
+                <Link href="/">
                     <IoIosContrast className="text-2xl" />
                 </Link>
                     
