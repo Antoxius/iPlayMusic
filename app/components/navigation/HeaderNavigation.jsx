@@ -27,7 +27,6 @@ export default function HeaderNavigation () {
                     </Link>
                     <h1 className="uppercase">{pageTitle}</h1>
                     <CiSearch />
-
                 </li>
             </ul>
         </nav>
