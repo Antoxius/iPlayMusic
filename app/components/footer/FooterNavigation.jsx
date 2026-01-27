@@ -8,8 +8,8 @@ export default function FooterNavigation () {
 
 return (
     <>
-        <footer className="w-full shadow-2xl fixed bottom-0 mt-8 py-4 border-t bg-white flex justify-center items-center">
-            <div className="flex gap-4">
+        <footer className="w-full drop-shadow-5xl fixed bottom-0 mt-8 py-4 bg-white flex justify-center items-center">
+            <div className="flex justify-between w-80">
                 <TbActivityHeartbeat className="text-2xl">
                     <a href="http://index"></a>
                 </TbActivityHeartbeat>

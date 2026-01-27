@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { IoIosPlay } from "react-icons/io";
+import Track from "../components/track/Track";
 
 export default function SongsPage() {
   const searchParams = useSearchParams();
@@ -28,24 +29,18 @@ export default function SongsPage() {
   }, [accessToken, playlistId]);
 
   return (
-    <div>
+    <>
       
       <h1 className="text-4xl font-bold mb-8 mt-8 text-center">{playlistName} - All Songs</h1>
-      <ul className="mx-10">
+      <ul className="mx-5 overflow-scroll gap-3 h-140">
         {tracks.length > 0 ? (
           tracks.map((item, idx) => (
-            <li key={item.track.id || idx} className="py-4 flex items-center">
-              <div className="mr-4 bg-red-500 rounded-full p-2 text-white"><IoIosPlay /></div>
-              <div>
-                <div className="font-semibold">{item.track.name}</div>
-                <div className="text-sm">{item.track.artists.map((a) => a.name).join(", ")}</div>
-              </div>
-            </li>
+           <Track key={item.track.id} item={item} idx={idx} />
           ))
         ) : (
           <li className="text-gray-400">No songs found or playlist is empty.</li>
         )}
       </ul>
-    </div>
+    </>
   );
 }

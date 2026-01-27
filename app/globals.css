@@ -4,6 +4,10 @@
     overflow: hidden;
 }
 
+.drop-shadow-5xl{
+    filter: drop-shadow(0 4px 24px rgba(0, 0, 0, 0.2));
+}
+
 /* .playBtn{
     background-color: red;
     width: 40px;

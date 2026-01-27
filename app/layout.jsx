@@ -14,12 +14,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="dk">
-      <body className="antialiased"
-      >
+      <body className="min-h-dvh flex flex-col antialiased overflow-hidden">
         <Header/>
-        <main>
-        {children}
-        </main>
+        <main className="flex-1 min-h-0">{children}</main>
         <Footer/>
       </body>
     </html>

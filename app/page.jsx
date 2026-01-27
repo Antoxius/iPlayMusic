@@ -39,7 +39,7 @@ export default function Playlists() {
   };
 
   return (
-    <div className="h-30 ">
+    <div className="h-10 ">
       <Image
         width={375}
         height={273}
@@ -70,9 +70,9 @@ export default function Playlists() {
         {playlists.length === 0 && <h3 className="">No playlists found.</h3>}
       </div>
       {selectedPlaylist && (
-        <div className="mt-8 rounded-lg p-6 pb-24">
-          <h2 className="text-2xl font-bold mb-4">{selectedPlaylist.name} - Songs</h2>
-          <ul>
+        <div className="mt-8 rounded-lg overflow-y-auto h-120 p-6 pb-24">
+          <h2 className="text-2xl font-bold mb-6">{selectedPlaylist.name} - Songs</h2>
+          <ul className="flex gap-4 flex-col">
             {tracks.length > 0 ? (
               (showAll ? tracks : tracks.slice(0, 8)).map((item, idx) => (
                 <li key={item.track.id || idx} className="py-2 flex items-center">
@@ -91,7 +91,7 @@ export default function Playlists() {
           </ul>
           {!showAll && tracks.length > 8 && (
             <button
-              className="mt-4  py-4 text-center text-red-500 border-red-500 border-2 w-full rounded-full uppercase font-bold"
+              className="my-10 py-4 text-center text-red-500 border-red-500 border-2 w-full rounded-full uppercase font-bold"
               onClick={() => router.push(`/songs?playlistId=${selectedPlaylist.id}`)}
             >
               Listen all
