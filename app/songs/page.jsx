@@ -1,7 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { IoIosPlay } from "react-icons/io";
 import Track from "../components/track/Track";
 
 export default function SongsPage() {
@@ -31,7 +30,7 @@ export default function SongsPage() {
   return (
     <>
       
-      <h1 className="text-4xl font-bold mb-8 mt-8 text-center">{playlistName} - All Songs</h1>
+      <h1 className="text-4xl font-bold mb-8 mt-8 mx-4 text-center">{playlistName} - All Songs</h1>
       <ul className="mx-5 overflow-scroll gap-3 h-140">
         {tracks.length > 0 ? (
           tracks.map((item, idx) => (

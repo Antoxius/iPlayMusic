@@ -5,6 +5,11 @@ import { IoIosPlay } from "react-icons/io";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCoverflow } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+
 export default function Playlists() {
   const [playlists, setPlaylists] = useState([]);
   const [selectedPlaylist, setSelectedPlaylist] = useState(null);
@@ -39,7 +44,7 @@ export default function Playlists() {
   };
 
   return (
-    <div className="h-10 ">
+    <div className="">
       <Image
         width={375}
         height={273}
@@ -50,27 +55,48 @@ export default function Playlists() {
       <h1 className="text-4xl text-white font-bold ml-5 dark:text-white">
         Playlists
       </h1>
-      <div className="flex overflow-x-auto">
-        {playlists.map((playlist) => (
-          <div
-            key={playlist.id}
-            className={`w-60 max-w-xs shrink-0 px-10 py-5 cursor-pointer ${
-              selectedPlaylist?.id === playlist.id
-            }`}
-            onClick={() => handleSelectPlaylist(playlist)}
-          >
-            <img
-              src={playlist.images[0]?.url}
-              alt={playlist.name}
-              className="shadow-2xl w-full object-cover rounded-md mb-2"
-            />
-            <h2 className="text-xl text-center font-bold">{playlist.name}</h2>
-          </div>
-        ))}
-        {playlists.length === 0 && <h3 className="">No playlists found.</h3>}
+      <div className="px-4 py-3">
+        <Swiper
+          modules={[EffectCoverflow]}
+          effect="coverflow"
+          centeredSlides
+          grabCursor
+          slidesPerView="auto"
+          spaceBetween={16}
+          coverflowEffect={{
+            rotate: 0,
+            stretch: 0,
+            depth: 140,
+            modifier: 1.8,
+            slideShadows: false,
+          }}
+          className="w-full"
+        >
+          {playlists.map((playlist) => (
+            <SwiperSlide key={playlist.id} style={{ width: 240 }}>
+              <div
+                className="mx-8 py-5"
+                onClick={() => handleSelectPlaylist(playlist)}
+              >
+                <img
+                  src={playlist.images?.[0]?.url}
+                  alt={playlist.name}
+                  className="shadow-lg w-full object-cover rounded-md mb-6"
+                />
+                <h2 className="text-xl text-center font-bold">{playlist.name}</h2>
+              </div>
+            </SwiperSlide>
+          ))}
+
+          {playlists.length === 0 && (
+            <SwiperSlide style={{ width: 240 }}>
+              <h3 className="">No playlists found.</h3>
+            </SwiperSlide>
+          )}
+        </Swiper>
       </div>
       {selectedPlaylist && (
-        <div className="mt-8 rounded-lg overflow-y-auto h-120 p-6 pb-24">
+        <div className="overflow-y-auto h-120 p-6 pb-40">
           <h2 className="text-2xl font-bold mb-6">{selectedPlaylist.name} - Songs</h2>
           <ul className="flex gap-4 flex-col">
             {tracks.length > 0 ? (
@@ -91,7 +117,7 @@ export default function Playlists() {
           </ul>
           {!showAll && tracks.length > 8 && (
             <button
-              className="my-10 py-4 text-center text-red-500 border-red-500 border-2 w-full rounded-full uppercase font-bold"
+              className=" my-10 rounded-full left-0 right-0 bottom-24 z-50 w-full py-4 text-center text-red-500 border-red-500 border-2 uppercase font-bold bg-white"
               onClick={() => router.push(`/songs?playlistId=${selectedPlaylist.id}`)}
             >
               Listen all

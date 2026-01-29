@@ -86,9 +86,8 @@ export default function Player({ track }) {
 
         const next = parseFloat(event.target.value);
         const clamped = Math.max(0, Math.min(next, 1));
-        const nextVolume = 1 - clamped;
-        audio.volume = nextVolume;
-        setVolume(nextVolume);
+        audio.volume = clamped;
+        setVolume(clamped);
     };
 return (
     <>
@@ -154,11 +153,11 @@ return (
                                     min={0}
                                     max={1}
                                     step={0.01}
-                                    value={1 - Math.max(0, Math.min(volume, 1))}
+                                    value={Math.max(0, Math.min(volume, 1))}
                                     onInput={handleVolume}
                                     onChange={handleVolume}
                                     className="h-24 w-6 touch-none select-none"
-                                    style={{ writingMode: 'vertical-lr', WebkitAppearance: 'slider-vertical' }}
+                                    style={{  WebkitAppearance: 'slider-vertical' }}
                                     aria-label="Volume slider"
                                 />
                             </div>
